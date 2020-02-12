@@ -145,5 +145,6 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    print(classify(part1_load(args.folder1, args.folder2, args.n)))
+    print('Accuracy score raw counts:', classify(part1_load(args.folder1, args.folder2, args.n)))
+    print('Accuracy score tfidf score:', classify(part3_tfidf(part1_load(args.folder1, args.folder2, args.n))))
 
