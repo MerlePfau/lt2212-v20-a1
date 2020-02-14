@@ -5,6 +5,7 @@ import os
 import sys
 import pandas as pd
 import nltk
+nltk.download('punkt')
 import numpy as np
 import numpy.random as npr
 from glob import glob
