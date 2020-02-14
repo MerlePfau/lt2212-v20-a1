@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 import os
 import sys
 import pandas as pd
-import nltk
-nltk.download('punkt')
 import numpy as np
 import numpy.random as npr
 from glob import glob
@@ -34,7 +32,7 @@ def part1_load(folder1, folder2, n=1):
         with open(filename, "r") as thefile:
             for line in thefile:
                 filecontent += line
-            tokenized = nltk.word_tokenize(filecontent)
+            tokenized = filecontent.split()
             big_table[folder1][filename] = {}
             # count words in each file
             for word in tokenized:
@@ -51,7 +49,7 @@ def part1_load(folder1, folder2, n=1):
         with open(filename, "r") as thefile:
             for line in thefile:
                 filecontent += line
-            tokenized = nltk.word_tokenize(filecontent)
+            tokenized = filecontent.split()
             big_table[folder2][filename] = {}
             # count words in each file
             for word in tokenized:
