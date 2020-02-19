@@ -85,8 +85,8 @@ def part1_load(folder1, folder2, n=1):
     listoffolder2 = [folder2 for j in range(len(listoffiles2))]
     listoffolders = listoffolder1 + listoffolder2
     # construct dataframe
-    df['filename'] = listofallfiles
-    df['classname'] = listoffolders
+    df["filename"] = listofallfiles
+    df["classname"] = listoffolders
     for word in wordlist:
         df[word] = pdict[word]
     return df
@@ -102,7 +102,7 @@ def part2_vis(df, m):
         count_dict[word] = amount
     sorted_counts = sorted(count_dict, key=count_dict.get, reverse=True)
     to_plot = sorted_counts[:m]
-    sorted_by_folder = df.groupby(by=['classname']).sum()
+    sorted_by_folder = df.groupby(by=["classname"]).sum()
     final_df = pd.DataFrame()
     for word in to_plot:
         final_df[word] = sorted_by_folder[word]
@@ -112,21 +112,21 @@ def part2_vis(df, m):
 def part3_tfidf(df):
     # DO NOT CHANGE
     assert isinstance(df, pd.DataFrame)
-    classnames = df['classname'].copy()
-    del df['classname']
-    filenames = df['filename'].copy()
-    del df['filename']
+    classnames = df["classname"].copy()
+    del df["classname"]
+    filenames = df["filename"].copy()
+    del df["filename"]
     number_docs = df.shape[0]
     not_zero = df.astype(bool).sum(axis=0)
     idf = np.log((number_docs/not_zero))
     transformed_df = df.mul(idf, axis=1)
-    transformed_df.insert(0, 'classname', classnames)
-    transformed_df.insert(0, 'filename', filenames)
+    transformed_df.insert(0, "classname", classnames)
+    transformed_df.insert(0, "filename", filenames)
     return transformed_df
 
 def classify(df):
     KNN_model = KNeighborsClassifier(n_neighbors=10)
-    y = df['classname'].values
+    y = df["classname"].values
     X = df.iloc[:,2:].values
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=27)
     KNN_model.fit(X_train, y_train)
