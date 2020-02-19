@@ -10,3 +10,5 @@ You can also see some extremely frequent words and punctuation marks in the top 
 
 Part Bonus: I chose to run the KNeighborsClassifier on the data, setting the n_neighbours to 10. This way I got an accuracy score of 0.8060344827586207 for the raw counts and 0.8706896551724138 when run on the tfidf scores. Ideally tfidf should focus on the words that are more frequent in one class (clearly showing the class of a document) and therefore raise the score of the classifier. 
 Since my tfidf included so many non content words, it didn't actually make that big of a but still a noticable difference.
+
+For some reason (that I don't understand), in the Jupyter Notebook only the output of part3 works in the classifier. When run in the terminal, both work fine.
