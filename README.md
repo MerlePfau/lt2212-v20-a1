@@ -3,7 +3,7 @@
 Put any documentation here including any answers to the questions in the 
 assignment on Canvas.
 
-Part 1: I chose to load in the contents of the file using the nltk tokeniser and keeping all non letters in, as well as not lower casing.
+Part 1: I chose to load in the contents of the file using the nltk tokeniser and keeping all non letters in, as well as not lower casing. That way you get a look at the raw data and can later decide to make changes, in case this appears to affect the output.
 
 Part 4: In the plot of the tfidf scores you can see that some of the medium frequent words get pushed to the top. These are the words that are way more frequent in documents of one class vs the other (e.g. oil and tonnes). 
 You can also see some extremely frequent words and punctuation marks in the top scores. I assume this is due to the very high raw counts, that elevate the presumably low idf scores a lot. It would make sense to filter these out to get more value out of the tfidf.
