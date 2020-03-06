@@ -1,5 +1,4 @@
 import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 import sys
@@ -106,8 +105,7 @@ def part2_vis(df, m):
     final_df = pd.DataFrame()
     for word in to_plot:
         final_df[word] = sorted_by_folder[word]
-    plotting = final_df.T.plot.bar()
-    return plotting
+    return final_df.T.plot.bar()
 
 def part3_tfidf(df):
     # DO NOT CHANGE
